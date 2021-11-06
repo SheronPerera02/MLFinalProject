@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Swagger Petstore",
+    "title": "ML Final Project",
     "version": "1.0.0",
     "contact": {}
   },
@@ -16,10 +16,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string",
-              "enum": []
+              "type": "string"
             },
-            "minLength": "3",
             "description": "Username for the login"
           },
           {
@@ -29,9 +27,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "The password for the login",
-            "minLength": "6",
-            "maxLength": "6"
+            "description": "The password for the login"
           }
         ],
         "operationId": "signIn",
@@ -54,8 +50,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "The username for signup",
-            "minLength": "3"
+            "description": "The username for signup"
           },
           {
             "name": "password",
@@ -63,9 +58,7 @@
             "required": true,
             "schema": {
               "type": "string"
-            },
-            "minLength": "6",
-            "maxLength": "6"
+            }
           }
         ],
         "operationId": "signUp",
