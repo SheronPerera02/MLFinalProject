@@ -1,74 +1,172 @@
 {
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger Petstore",
+    "version": "1.0.0",
+    "contact": {}
+  },
   "paths": {
-    "/login": {
+    "/signin": {
       "post": {
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
+        "summary": "",
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": []
+            },
+            "minLength": "3",
+            "description": "Username for the login"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The password for the login",
+            "minLength": "6",
+            "maxLength": "6"
           }
-        },
+        ],
+        "operationId": "signIn",
         "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
+          "default": {
+            "description": "Default response"
           }
         }
       }
     },
-    "/findUserById/{id}": {
-      "get": {
+    "/signup": {
+      "post": {
+        "summary": "",
+        "description": "",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "limit",
+            "name": "username",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "The username for signup",
+            "minLength": "3"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "minLength": "6",
+            "maxLength": "6"
           }
         ],
+        "operationId": "signUp",
         "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
+          "default": {
+            "description": "Default response"
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "",
+        "description": "",
+        "parameters": [],
+        "operationId": "getAllProducts",
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        }
+      }
+    },
+    "/order": {
+      "post": {
+        "summary": "",
+        "description": "",
+        "parameters": [],
+        "operationId": "placeOrder",
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        }
+      },
+      "get": {
+        "summary": "",
+        "description": "",
+        "parameters": [],
+        "operationId": "getAllOrders",
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        }
+      }
+    },
+    "/admin/product": {
+      "post": {
+        "summary": "",
+        "description": "",
+        "parameters": [],
+        "operationId": "createProduct",
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "summary": "",
+        "description": "",
+        "parameters": [],
+        "operationId": "updateProduct",
+        "responses": {
+          "default": {
+            "description": "Default response"
           }
         }
       }
     }
   },
+  "security": [],
+  "servers": [
+    {
+      "url": "",
+      "description": ""
+    }
+  ],
   "components": {
+    "links": {},
+    "callbacks": {},
     "schemas": {
       "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          }
-        }
+        "type": "object"
+      },
+      "Order": {
+        "type": "object"
+      },
+      "Product": {
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "authentication-token": {
+        "type": "apiKey",
+        "name": "token",
+        "in": "query"
       }
     }
-  }
+  },
+  "tags": []
 }
